@@ -9,7 +9,7 @@
     <script type="text/javascript">
         function auth() {
             var config = {
-                'client_id': '385089340215-qpt8k03jjsdis51k4ogro6o4q8414c1s.apps.googleusercontent.com',
+                'client_id': '{Your Client ID}',
                 'scope': 'https://www.googleapis.com/auth/fusiontables',
                 'immediate': false
             };
@@ -19,7 +19,7 @@
             });
         }
         function insert_row() {
-            gapi.client.setApiKey('AIzaSyAbY0ntgdQk9csr496434stHYR7hgJGRZE');
+            gapi.client.setApiKey('{Your API}');
 
             gapi.client.load('fusiontables', 'v1', function () {
                 var i;
