@@ -18,7 +18,7 @@
                 console.log(gapi.auth.getToken());
             });
         }
-        function insert_row() {
+        function update_row() {
             gapi.client.setApiKey('{Your API}');
 
             gapi.client.load('fusiontables', 'v2', function () {
@@ -34,7 +34,7 @@
 <body>
 <button onclick="auth();">Authorize</button>
 <br />
-<button onclick="insert_row();">Insert Data</button>
+<button onclick="update_row();">Update Data</button>
 <br />
 
 </body>
