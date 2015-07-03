@@ -1,0 +1,42 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <title>Authorization Request</title>
+    <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?v=3.exp&signed_in=true"></script>
+    <script type="text/javascript" src="https://apis.google.com/js/client.js"></script>
+    <script type="text/javascript">
+        function auth() {
+            var config = {
+                'client_id': '385089340215-qpt8k03jjsdis51k4ogro6o4q8414c1s.apps.googleusercontent.com',
+                'scope': 'https://www.googleapis.com/auth/fusiontables',
+                'immediate': false
+            };
+            gapi.auth.authorize(config, function () {
+                console.log('login complete');
+                console.log(gapi.auth.getToken());
+            });
+        }
+        function insert_row() {
+            gapi.client.setApiKey('AIzaSyAbY0ntgdQk9csr496434stHYR7hgJGRZE');
+
+            gapi.client.load('fusiontables', 'v1', function () {
+                var i;
+                for (i = 0; i < 2; i++) {
+                    var query = "INSERT INTO 1bzv3rXTeDKImk2RJGiH991nB4PgP-RquuFXpOcCc(ID,Name,Fac_ID) VALUES ('1','Test', '1')";
+                    gapi.client.fusiontables.query.sql({ sql: query }).execute(function (response) { console.log(response); });
+                }
+            });
+        }
+    </script>
+</head>
+
+<body>
+<button onclick="auth();">Authorize</button>
+<br />
+<button onclick="insert_row();">Insert Data</button>
+<br />
+
+</body>
+</html>
